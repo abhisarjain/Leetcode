@@ -1,8 +1,8 @@
 class Solution {
     public int firstUniqChar(String s) {
         LinkedHashMap<Character,Integer> hm = new LinkedHashMap<Character,Integer>();
-        ArrayList<Integer> arr = new ArrayList<Integer>();
-        int result[] = new int[s.length()];
+        // ArrayList<Integer> arr = new ArrayList<Integer>();
+        // int result[] = new int[s.length()];
        
         for(int i=0;i<s.length();i++)
         {
