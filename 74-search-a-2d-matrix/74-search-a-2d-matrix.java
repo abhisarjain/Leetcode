@@ -2,20 +2,29 @@ class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {
         int m = matrix.length;
         int n = matrix[0].length;
-        boolean bool = false;
-        for(int i = 0;i<m;i++)
+        int temp=0;
+        for(int i =m-1 ;i>=0;i--)
         {
-            HashSet<Integer> hs = new HashSet<Integer>();
-
-            for(int j=0;j<n;j++)
+            if(matrix[i][0]==target)
             {
-                hs.add(matrix[i][j]);
+                return true;
             }
-            if(hs.contains(target)){
-                bool = true;
+            if(target>matrix[i][0])
+            {
+                temp = i;
                 break;
             }
         }
-        return bool;
+        
+        for(int i = 0;i<n;i++)
+        {
+            if(matrix[temp][i] == target)
+            {
+                return true;
+            }
+            
+        }
+        
+        return false;
     }
 }
