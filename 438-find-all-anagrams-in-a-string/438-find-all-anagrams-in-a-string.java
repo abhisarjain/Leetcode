@@ -18,16 +18,25 @@ class Solution {
         }
         
         
-        HashMap<Character,Integer> hm2 = new HashMap<Character,Integer>();
+        // HashMap<Character,Integer> hm2 = new HashMap<Character,Integer>();
+        int count = hm1.size();
         while(j<s.length())
         {
-            if(hm2.containsKey(s.charAt(j)))
+            // if(hm2.containsKey(s.charAt(j)))
+            // {
+            //     hm2.put(s.charAt(j),hm2.get(s.charAt(j))+1);
+            // }
+            // else
+            // {
+            //     hm2.put(s.charAt(j),1);
+            // }
+            if(hm1.containsKey(s.charAt(j)))
             {
-                hm2.put(s.charAt(j),hm2.get(s.charAt(j))+1);
-            }
-            else
-            {
-                hm2.put(s.charAt(j),1);
+                hm1.put(s.charAt(j),hm1.get(s.charAt(j))-1);
+                if(hm1.get(s.charAt(j))==0)
+                {
+                    count--;
+                }
             }
             
             if((j-i+1)<k)
@@ -37,17 +46,28 @@ class Solution {
             
             else if((j-i+1)==k)
             {
-                if(hm2.equals(hm1))
+                // if(hm2.equals(hm1))
+                // {
+                //     result.add(i);
+                // }
+                // if(hm2.get(s.charAt(i))>1)
+                // {
+                //      hm2.put(s.charAt(i),hm2.get(s.charAt(i))-1);
+                // }
+                // else
+                // {
+                //     hm2.remove(s.charAt(i));
+                // }
+                
+                if(count==0) result.add(i);
+                
+                if(hm1.containsKey(s.charAt(i)))
                 {
-                    result.add(i);
-                }
-                if(hm2.get(s.charAt(i))>1)
-                {
-                     hm2.put(s.charAt(i),hm2.get(s.charAt(i))-1);
-                }
-                else
-                {
-                    hm2.remove(s.charAt(i));
+                    hm1.put(s.charAt(i),hm1.get(s.charAt(i))+1);
+                    if(hm1.get(s.charAt(i))==1)
+                    {
+                        count++;
+                    }
                 }
                 i++;
                 j++;
