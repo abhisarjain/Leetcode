@@ -7,7 +7,7 @@ class Solution {
         int i=0;
         int j=0;
         double sum =0;
-        double x= -1000000000;
+        double x= Integer.MIN_VALUE;
         while(j<nums.length)
         {
             sum+=nums[j];
